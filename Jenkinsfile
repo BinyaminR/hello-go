@@ -19,7 +19,14 @@ pipeline {
                 sh 'go test'
             }
         }
-        
+        stage('for stage branch') {
+          when {
+                branch 'stage'
+               }
+            steps {
+              echo 'stage branch'
+            }
+        }       
         stage('Build') {
             steps {
                 sh 'go build -o myapp'
